@@ -14,27 +14,60 @@ body{
     margin-bottom: 100px;
 }
 
+/* Animation */
+.swing-animation {
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -20px;
+}
+.swing-animation:before{
+    content: '';
+    position: absolute;
+    background: #000;
+    width: 5px; 
+    height: 5px;
+    top: 14px;
+    left: 52%;
+    z-index: 5;
+    border-radius: 50% 50%;
+    
+}
+.swing-animation:after{
+    content: '';
+    position: absolute;  
+    width: 20px; 
+    height: 20px;  
+    border: 1px solid #999;
+    top: 20px; 
+    left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+}
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+
+
 /* Nav-Bar Style */
 .nav-menu{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    position: absolute;
     top: 0;
+    justify-content: space-between;
 }
 .nav-menu-left img{
     width: 150px;
     height: 80px;
+    float: left;
 }
 .nav-menu-right{
     position: relative;
-    right: -450px;
+    margin-left: 400px;
 }
 .nav-menu-right ul{
-    margin: 0;
-    padding: 0;
     list-style-type: none;
-    position: absolute;
-    right: 0;
     top: 20px;
 }
 .nav-menu-right li{
@@ -50,12 +83,13 @@ body{
     text-align: center;
     padding: 5px 10px;
 }
+.nav-menu-right li a:hover{
+    border-bottom: 3px solid  #E02C6D;
+    transition: .5s ease-in-out;
+    border-radius: 5px;
+}
 
 /* *Toogle Styles Nav */
-
-.nav-menu-right ul li{
-    display: none;
-}
 .menu{
     display: none;
     color: #3A3A3A;
@@ -63,12 +97,6 @@ body{
     padding: 10px 0;
     text-decoration: none;
     
-}
-input[type=checkbox] {
-    display: none;
-}
-input[type=checkbox]:checked~#toogle-menu{
-    display: block;
 }
 /* Preebook Styles */
 .prebook{
@@ -186,9 +214,93 @@ input[type=checkbox]:checked~#toogle-menu{
     font-weight: bold;
 }
 
+
+/* Support Styles*/
+.support{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+}
+.support h2{
+    font-size: 28px;
+    line-height: 35px;
+}
+.support-left{
+    flex: 1;
+}
+.support-right{
+    flex: 1;
+}
+.support-left img{
+    width: 90%;
+    float: right;
+    border-radius: 15px;
+}
+
+.contact-form {
+    margin-top: 30px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+input {
+    width: 375px;
+    height: 50px;
+    padding: 0px 10px;
+    margin-top: 10px;
+    border: none;
+    border-left:1px solid #E02C6D;
+    border-bottom: 1px solid #E02C6D;
+    border-radius: 10px;
+}
+input:focus {
+    outline: none;
+    border: 1px solid #E02C6D;
+}
+
+
+/* Footer Styles */
+
+footer{
+    text-align: center;
+    color: white;
+    background-color: rgba(7, 7, 34, 0.842);
+}
+
+.footer-details{
+    padding: 30px 0px;
+}
+.footer-details h2,
+p,
+h6 {
+    margin: 0;
+}
+.footer-details p,
+h6{
+    color: rgb(168, 160, 160);
+}
+.social-icon {
+    margin-top: 15px;
+}
+.social-icon i {
+    font-size: 20px;
+    padding: 0 10px;
+    transition: .5s;
+    color: rgb(201, 191, 191);
+}
+.social-icon i:hover {
+    cursor: pointer;
+    color: #E02C6D;
+}
+
+
 /* Responsive Styles */
 
-@media screen and (max-width:800px){
+@media screen and (max-width:760px){
     .container{
         width: 100%;
         margin: 0 auto;
@@ -196,46 +308,93 @@ input[type=checkbox]:checked~#toogle-menu{
     }
     .nav-menu 
     .nav-menu-left img{
-        width: 100px;
+        width: 100%;
         height: 50px;
         margin-left: 20px;
     }
     .nav-menu-right{
-        right: 0;
-    }
-    .nav-menu-right ul{
-        display: none;
-        position: static; 
+        margin: 0 220px;
+        
     }
     .nav-menu-right li{
         margin-bottom: 2px;
+        display: inline-block;
     }
     .nav-menu-right ul li, li a{
         width: 100%;
     }
     .nav-menu-right li a{
         padding: 5px 0px;
-        color: white;
+        color: #3A3A3A;
     }
 
-    .menu{
-        display: block;
-        margin-top: 5px;
-        background: none;
+    .prebook{
+        flex-direction: column;
     }
-    .menu-icon{
-        margin-left: 150px;
+    .prebook-left{
+        order: 2;
+        padding: 0 20px;
     }
-    input[type=checkbox]:checked~#toogle-menu{
-        display: block;
-        margin-right: 45px;
-        background-color: beige;
+    .prebook-left h1{
+        font-size: 30px;
+        text-align: center;
     }
-
-/* Popular Responsive */
+    .prebook-right img{
+        width: 300px;
+    }
+    .prebook-left p{
+        font-size: 16px;
+        text-align: center;
+    }
+    /* Popular Responsive */
     .product-collection{
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 20px;
         padding: 5px 15px;
+    }
+    .see-more-button a {
+        float: none;
+        margin-left: 30px;
+    }
+    .support {
+        flex-direction: column;
+        padding-top: 0;
+    }
+
+    .support-right img {
+        width: 80%;
+        float: none;
+        margin: 35px 35px;
+    }
+
+    input {
+        height: 50px;
+        padding: 0px 10px;
+        margin-top: 10px;
+        border: none;
+    }
+}
+
+@media screen and (min-width: 761px) and (max-width:868px){
+    .nav-menu{
+        padding: 0 15px;
+    }
+    .nav-menu-left{
+        right: 0px;
+    }
+    .prebook{
+        flex-direction: column;
+    }
+    .prebook-left{
+        order: 2;
+        padding: 0 20px;
+    }
+    .product-collection {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .support {
+        padding: 0px 25px;
     }
 }
