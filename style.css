@@ -1,0 +1,241 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Basic & Common Styles */
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+/* Nav-Bar Style */
+.nav-menu{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    position: absolute;
+    top: 0;
+}
+.nav-menu-left img{
+    width: 150px;
+    height: 80px;
+}
+.nav-menu-right{
+    position: relative;
+    right: -450px;
+}
+.nav-menu-right ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+.nav-menu-right li{
+    display: inline-block;
+    float: none;
+}
+.nav-menu-right li a{
+    text-decoration: none;
+    display: block;
+    color: #3A3A3A;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+/* *Toogle Styles Nav */
+
+.nav-menu-right ul li{
+    display: none;
+}
+.menu{
+    display: none;
+    color: #3A3A3A;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    
+}
+input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox]:checked~#toogle-menu{
+    display: block;
+}
+/* Preebook Styles */
+.prebook{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prebook-left{
+    padding-right: 200px;
+}
+.prebook-left h1{
+    font-size: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+    color: #3A3A3A;
+}
+.prebook-left p{
+    line-height: 20px;
+    margin-bottom: 40px;
+    color: #3A3A3A;
+}
+
+/* Button */
+.primary-button{
+    border: 0;
+    outline: 0;
+    padding: 10px 24px;
+    background-color:  #E02C6D;
+    border-radius: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+}
+.primary-button::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 400%;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.33s * var(--i));
+}
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.arrow-button{
+    margin-left: 10px;
+    margin-top: 2px; 
+}
+
+
+/* Popular Collection */
+.secition-title h2{
+    font-size: 28px;
+    text-align: center;
+    padding-bottom: 30px;
+    color: #3A3A3A;
+}
+
+.product-collection{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px 60px;
+}
+.products{
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow:  0px 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+}
+.product-banner img{
+    width: 100%;
+}
+.rating{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.fa-star {
+    color: rgba(128, 128, 128, 0.815);
+}
+
+.fillup {
+    color: 	#FFA500;
+}
+.f-color{
+    color: 	rgb(255,0,0);
+    margin-left: 10px;
+}
+.product-details p{
+    margin: 0;
+    font-size: 14px;
+}
+.see-more-button{
+    float: right;
+    margin-right: 70px; 
+}
+.see-more-button a{
+    text-decoration: none;
+    color: #E02C6D;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width:800px){
+    .container{
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .nav-menu 
+    .nav-menu-left img{
+        width: 100px;
+        height: 50px;
+        margin-left: 20px;
+    }
+    .nav-menu-right{
+        right: 0;
+    }
+    .nav-menu-right ul{
+        display: none;
+        position: static; 
+    }
+    .nav-menu-right li{
+        margin-bottom: 2px;
+    }
+    .nav-menu-right ul li, li a{
+        width: 100%;
+    }
+    .nav-menu-right li a{
+        padding: 5px 0px;
+        color: white;
+    }
+
+    .menu{
+        display: block;
+        margin-top: 5px;
+        background: none;
+    }
+    .menu-icon{
+        margin-left: 150px;
+    }
+    input[type=checkbox]:checked~#toogle-menu{
+        display: block;
+        margin-right: 45px;
+        background-color: beige;
+    }
+
+/* Popular Responsive */
+    .product-collection{
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+        padding: 5px 15px;
+    }
+}
